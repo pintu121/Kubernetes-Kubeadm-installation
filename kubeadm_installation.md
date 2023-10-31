@@ -15,6 +15,11 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 
 Run the following commands on both the master and worker nodes to prepare them for kubeadm.
 
+#Disable awap and add kernel settings
+swapoff -a 
+sed -i ' / swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+
 ```bash
 # using 'sudo su' is not a good practice.
 sudo apt update
